@@ -1,0 +1,1 @@
+# full_stack_fastapi_svelte_mysql
