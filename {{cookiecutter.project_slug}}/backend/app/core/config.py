@@ -1,10 +1,15 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
+
+from pydantic_settings import SettingsConfigDict
+from pydantic_settings_yaml import YamlBaseSettings
 
 
-class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-    DOMAIN: str
+class Settings(YamlBaseSettings):
+    model_config = SettingsConfigDict(yaml_file=f'{ROOT_DIR}/config/config.yaml', env_file_encoding='utf-8', secrets_dir=None)
+
+    domain: str
 
 
 settings = Settings()
