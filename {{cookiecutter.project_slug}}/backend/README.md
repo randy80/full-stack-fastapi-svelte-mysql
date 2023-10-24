@@ -1,1 +1,2 @@
-backend
+# {{ cookiecutter.project_name }}
+
